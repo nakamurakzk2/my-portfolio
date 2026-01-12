@@ -215,7 +215,7 @@ export default function NakamuraPortfolio() {
               </p>
             </div>
 
-            <div className="md:col-start-2 md:col-end-5 md:row-start-4 md:row-end-6 space-y-6 text-xs leading-loose text-[#4C4C4C] text-center">
+            <div className="md:col-start-2 md:col-end-5 md:row-start-4 md:row-end-6 space-y-6 text-[8px] md:text-xs leading-loose text-[#4C4C4C] text-center">
               <RevealText delay={0.2}>
                 <p>小学4年次に東日本大震災を経験。一度は誰もいなくなってしまった町が、</p>
                 <p>昔の良さを残しつつ、昔よりもきれいで、住みやすいまちに再生していく様子を見て、建築学科を志す。</p>
