@@ -4,6 +4,9 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ReactLenis } from '@studio-freight/react-lenis';
 import { ArrowDown } from 'lucide-react';
 
+const MotionDiv = motion.div as any;
+const MotionHeader = motion.header as any;
+
 // --- Design Tokens ---
 const COLORS = {
   bg: '#F2F0EC',       // Paper
@@ -119,14 +122,14 @@ const Section = ({ children, className = "" }: { children: React.ReactNode; clas
 
 // Animated Text Reveal
 const RevealText = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
-  <motion.div
+  <MotionDiv
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-10%" }}
     transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
   >
     {children}
-  </motion.div>
+  </MotionDiv>
 );
 
 export default function NakamuraPortfolio() {
@@ -158,7 +161,7 @@ export default function NakamuraPortfolio() {
       >
 
         {/* --- STICKY HEADER --- */}
-        <motion.header
+        <MotionHeader
           className="fixed top-0 left-0 z-50 w-full p-4 md:p-4 bg-[#F2F0EC]/90 backdrop-blur-md border-b border-[#A7ADBC]/20 shadow-sm"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: isHeaderVisible ? 1 : 0, y: isHeaderVisible ? 0 : -20 }}
@@ -176,7 +179,7 @@ export default function NakamuraPortfolio() {
               </span>
             </div>
           </div>
-        </motion.header>
+        </MotionHeader>
 
         {/* --- HERO SECTION --- */}
         <Section className="h-screen pt-2 md:pt-6 !fixed inset-0 z-0">
@@ -195,7 +198,7 @@ export default function NakamuraPortfolio() {
             ))}
           </div>
 
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2 }}
@@ -254,9 +257,9 @@ export default function NakamuraPortfolio() {
                 <div className="hero-wipe" />
               </div>
             </div>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1, duration: 1 }}
@@ -264,14 +267,14 @@ export default function NakamuraPortfolio() {
           >
             <span className="text-xs tracking-widest uppercase">Scroll</span>
             <ArrowDown size={16} className="animate-bounce" />
-          </motion.div>
+          </MotionDiv>
         </Section>
 
         <div className="relative z-10 mt-[100vh]">
           {/* --- BIOGRAPHY SECTION --- */}
           <Section className="border-t border-[#A7ADBC]/20 bg-[#F2F0EC]">
             <div ref={bioSectionRef} className="relative overflow-hidden">
-              <motion.div style={{ opacity: bioContentOpacity, translateY: bioContentY }}>
+              <MotionDiv style={{ opacity: bioContentOpacity, y: bioContentY }}>
                 <RevealText>
                   <h2 className="text-3xl md:text-4xl font-bold mb-24 text-center tracking-widest">BIOGRAPHY</h2>
                 </RevealText>
@@ -287,7 +290,7 @@ export default function NakamuraPortfolio() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </MotionDiv>
             </div>
           </Section>
 
@@ -549,7 +552,7 @@ function TimelineItem({ data, index }: { data: { year: string; title: string; de
   const isEven = index % 2 === 0;
 
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
@@ -573,6 +576,6 @@ function TimelineItem({ data, index }: { data: { year: string; title: string; de
           {data.desc}
         </p>
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }
