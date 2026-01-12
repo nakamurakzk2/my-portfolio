@@ -202,7 +202,7 @@ export default function NakamuraPortfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2 }}
-            className="relative z-10 grid min-h-[calc(100vh-4rem)] grid-cols-1 gap-8 md:h-[calc(100vh-4rem)] md:grid-cols-5 md:grid-rows-8 md:gap-6 items-stretch w-full"
+            className="relative z-10 grid min-h-[calc(100vh-4rem)] grid-cols-1 gap-4 md:h-[calc(100vh-4rem)] md:grid-cols-5 md:grid-rows-8 md:gap-6 items-stretch w-full"
           >
             <div className="md:col-start-1 md:col-end-4 md:row-start-1 md:row-end-3 md:w-5/6">
               <p className="text-left text-xs md:text-sm uppercase tracking-[0.35em] text-[#6B6B6B] mb-6">
@@ -312,7 +312,7 @@ export default function NakamuraPortfolio() {
 
                       {/* Image Use Area */}
                       {item.image ? (
-                        <div className="mb-4 w-full h-48 flex items-center justify-center">
+                        <div className="mb-4 w-full h-24 md:h-48 flex items-center justify-center">
                           {item.link ? (
                             <a href={item.link} target="_blank" rel="noopener noreferrer" className="block h-full transition-opacity duration-300 hover:opacity-80">
                               <img
@@ -330,7 +330,7 @@ export default function NakamuraPortfolio() {
                           )}
                         </div>
                       ) : (
-                        <div className="mb-4 w-full h-48 bg-gray-200 overflow-hidden relative flex items-center justify-center text-[#A7ADBC]/50">
+                        <div className="mb-4 w-full h-24 md:h-48 bg-gray-200 overflow-hidden relative flex items-center justify-center text-[#A7ADBC]/50">
                           <span className="text-xs uppercase tracking-widest">Coming Soon</span>
                         </div>
                       )}
